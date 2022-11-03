@@ -5,7 +5,7 @@ from typing import List
 
 
 def main():
-    # Define C library
+    # Define C library. 
     lib = ctypes.CDLL('lib/vector.so')
     
     x: List[int] = [1, 2, 3, 4, 5]
@@ -14,8 +14,6 @@ def main():
     # Convert python list to C array
     x_size = 5
     x_arr = (ctypes.c_double * x_size)(*x)
-    
-    
 
     # Printing list using C functions. We need to define the function argument datatype first
     lib.print_vectors.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_size_t]
@@ -24,7 +22,6 @@ def main():
     lib.print_hello()   
     lib.print_vectors(x_arr, ctypes.c_size_t(x_size))
 
-    
     lib.cumsum.restype = ctypes.POINTER(ctypes.c_double)
     cumsum = lib.cumsum(x_arr, ctypes.c_size_t(x_size))
     
