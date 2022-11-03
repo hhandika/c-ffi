@@ -16,6 +16,7 @@ using namespace std;
 
 int main(void)
 {
+    print_hello();
     // Here we use CPP std::vector to store the data.
     vector<double> x = {1.0, 2.0, 3.0, 4.0, 5.0};
     vector<double> y = {10.0, 20.0, 30.0, 40.0, 50.0};
@@ -36,7 +37,7 @@ int main(void)
     print_vectors(ones_vec.data(), ones_vec.size());
 
     // Or print it directly.
-    cout << "Vector ones: ";
+    cout << "Vector ones direct: ";
     print_vectors(ones, size);
 
     double *add_res = add_vectors(x.data(), y.data(), x.size());

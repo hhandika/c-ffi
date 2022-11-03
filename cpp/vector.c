@@ -14,6 +14,10 @@ Distance
 */
 #include "vector.h"
 
+void print_hello() {
+    printf("Hello from C\n");
+}
+
 void print_vectors(double vec[], size_t vec_size)
 {
     for (size_t i = 0; i < vec_size; i++)

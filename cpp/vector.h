@@ -11,6 +11,7 @@
 // Shorten function call to free memory.
 #define FREE_MEM(p) free_mem((void **)&p)
 
+void print_hello();
 void print_vectors(double *vec, size_t vec_size);
 double allocate_mem(double **arr, size_t size);
 void free_mem(void **pointer);
