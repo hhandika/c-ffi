@@ -1,12 +1,7 @@
-/*
-Heru Handika
-15 February 2020
-Vector operation
-*/
-
 #include <iostream>
 #include <vector>
 
+// Tell C++ compiler this is C code.
 extern "C"
 {
 #include "vector.h"

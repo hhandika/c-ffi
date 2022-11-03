@@ -9,6 +9,7 @@ DEPS= vector.h
 %.o: %.cpp $(DEPS)
 	$(CXX) -c $< $(CXXFLAGS) -o $@
 
+# Compile the C code into an object files separately
 %.o: %.c $(DEPS)
 	$(CC) -c $< $(CFLAGS) -o $@
 
