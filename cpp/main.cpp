@@ -35,23 +35,34 @@ int main(void)
     cout << "Vector ones direct: ";
     print_vectors(ones, size);
 
+    // Free the memory.
+    delete ones;
+
     double *add_res = add_vectors(x.data(), y.data(), x.size());
     cout << "Vector addition: ";
     print_vectors(add_res, x.size());
+
+    delete add_res;
 
     double *sub_res = substract_vectors(x.data(), y.data(), x.size());
     cout << "Vector substraction: ";
     print_vectors(sub_res, x.size());
 
+    delete sub_res;
+
     double *mul_res = multiply_vectors(x.data(), y.data(), x.size());
     cout << "Vector multiplication: ";
     print_vectors(mul_res, x.size());
+
+    delete mul_res;
 
     cout << "Sum vector x: " << sum(x.data(), x.size()) << endl;
 
     double *csum = cumsum(x.data(), x.size());
     cout << "Cumsum vector x: ";
     print_vectors(csum, x.size());
+
+    delete csum;
 
     cout << "Dot product: " << dot_product(x.data(), y.data(), x.size()) << endl;
 
