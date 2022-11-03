@@ -3,8 +3,6 @@ import ctypes
 
 from typing import List
 
-from certifi import contents
-
 
 def main():
     # Define C library
