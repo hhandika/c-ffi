@@ -16,43 +16,51 @@ using namespace std;
 
 int main(void)
 {
+    // Here we use CPP std::vector to store the data.
     vector<double> x = {1.0, 2.0, 3.0, 4.0, 5.0};
     vector<double> y = {10.0, 20.0, 30.0, 40.0, 50.0};
 
+    // We pass the pointer to the C function.
+    // C array requires the size of the array.
+    // We can also do &vec[0] to get the pointer.
+    // But, this is the cleanest way, I think.
     print_vectors(x.data(), x.size());
 
-    // vector<double> ones = vector_ones(5);
-    // cout << "Vector ones: ";
-    // print_vector(ones);
+    // C function returns a pointer to the array.
+    int size = 5;
+    double *ones = vec_ones(size);
 
-    // vector<double> add_res = add_vector(x, y);
-    // cout << "Vector addition: ";
-    // print_vector(add_res);
+    // We can convert array to vector.
+    vector<double> ones_vec(ones, ones + size);
+    cout << "Vector ones: ";
+    print_vectors(ones_vec.data(), ones_vec.size());
 
-    // vector<double> sub_res = substract_vector(x, y);
-    // cout << "Vector substraction: ";
-    // print_vector(sub_res);
+    // Or print it directly.
+    cout << "Vector ones: ";
+    print_vectors(ones, size);
 
-    // vector<double> mul_res = multiply_vector(x, y);
-    // cout << "Vector multiplication: ";
-    // print_vector(mul_res);
+    double *add_res = add_vectors(x.data(), y.data(), x.size());
+    cout << "Vector addition: ";
+    print_vectors(add_res, x.size());
 
-    // cout << "Sum vector x: " << sum(x) << endl;
+    double *sub_res = substract_vectors(x.data(), y.data(), x.size());
+    cout << "Vector substraction: ";
+    print_vectors(sub_res, x.size());
 
-    // vector<double> csum = cumsum(x);
-    // cout << "Cumsum vector x: ";
-    // print_vector(csum);
+    double *mul_res = multiply_vectors(x.data(), y.data(), x.size());
+    cout << "Vector multiplication: ";
+    print_vectors(mul_res, x.size());
 
-    // vector<double> csum_gen = cumsum_gen<double>(x);
-    // cout << "Cumsum vector gen x: ";
-    // print_vector(csum_gen);
+    cout << "Sum vector x: " << sum(x.data(), x.size()) << endl;
 
-    // cout << "Mean vector x: " << mean(x) << endl;
+    double *csum = cumsum(x.data(), x.size());
+    cout << "Cumsum vector x: ";
+    print_vectors(csum, x.size());
 
-    // cout << "Dot product: " << dot_product(x, y) << endl;
+    cout << "Dot product: " << dot_product(x.data(), y.data(), x.size()) << endl;
 
-    // cout << "Sum of square X: " << sum_of_square(x) << endl;
-    // cout << "Sum of square Y: " << sum_of_square(y) << endl;
-    // cout << "Magnitude X: " << magnitude(x) << endl;
-    // cout << "Distance: " << distance(x, y) << endl;
+    cout << "Sum of square X: " << sum_of_square(x.data(), x.size()) << endl;
+    cout << "Sum of square Y: " << sum_of_square(y.data(), y.size()) << endl;
+    cout << "Magnitude X: " << magnitude(x.data(), x.size()) << endl;
+    cout << "Distance: " << distance(x.data(), y.data(), x.size()) << endl;
 }
