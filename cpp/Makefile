@@ -1,9 +1,10 @@
-CXX = g++
+CXX= g++
 CXXFLAGS= -Wall -Werror -Wextra -pedantic -o3 -std=c++11
-CC = gcc
+CC= gcc
 CFLAGS=	-Wall -Werror -Wextra -pedantic -o3 -lm -std=c11
-TARGET= cpp_ffi
+TARGET= vector
 OBJS= main.o vector.o
+COBJS= vector.o
 DEPS= vector.h
 
 %.o: %.cpp $(DEPS)
@@ -15,6 +16,9 @@ DEPS= vector.h
 
 exe: $(OBJS)
 	$(CXX) $^ $(CXXFLAGS) -o $(TARGET)
+
+so: $(COBJS)
+	$(CC) -shared $^ $(CFLAGS) -o $(TARGET).so
 
 clean:
 	rm *.o
